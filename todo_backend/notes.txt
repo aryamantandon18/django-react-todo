@@ -1,0 +1,65 @@
+    
+        # token = req.COOKIES.get('token')
+
+        # if token:
+        #     if User.objects.filter(token_value=token).exists():
+        #         user = User.objects.get(token_value=token)
+        #         user_serializer = UserSerializer(user)
+            
+        #         if user.is_email_verified:
+        #         # Return successful login if token is valid
+        #             return Response({
+        #             "user": user_serializer.data,
+        #             "message": "Logged in successfully using token"
+        #             }, status=status.HTTP_200_OK)
+        #     else:
+        #         return Response({
+        #             "error": "Email is not verified. Please verify your email with the OTP sent to your inbox."
+        #         }, status=status.HTTP_400_BAD_REQUEST)
+
+       
+        # else:
+        #     return Response({"error": "Invalid token"}, status=status.HTTP_404_NOT_FOUND)
+
+    #________________________________________________________________________________________________________
+    
+    # @api_view(['POST'])
+    # def login(req):
+    #     if "token_value" in req.data:
+    #         token = req.data["token_value"]
+    #         if User.objects.filter(token_value=token).exists():
+    #             user = User.objects.get(token_value = token)
+    #             user_serializer = UserSerializer(user)
+    #             if user.is_email_verified:
+    #                 return Response({"user":user_serializer.data,"message":"Logged in successfully"},
+    #                                 status=status.HTTP_200_OK) 
+    #             else:
+    #                 return Response({"error": "Email is not verified. Please verify your email with the OTP sent to your inbox."}, status=status.HTTP_400_BAD_REQUEST)
+    #         else:
+    #             return Response({"error":"token does not exists"},status=status.HTTP_404_NOT_FOUND)
+    #     if "email" not in req.data or "password" not in req.data:
+    #         return Response({"error":"Email & Password are required"},status=status.HTTP_400_BAD_REQUEST)     
+                              
+    #     email = req.data["email"]
+    #     password = req.data["password"]
+
+    #     # check password
+    #     if User.objects.filter(email = email).exists():
+    #         user = User.objects.get(email = email)
+    #         if user.password != password:
+    #             return Response({"error":"password is wrong"},status=status.HTTP_400_BAD_REQUEST)
+    #     else:
+    #         return Response({"error": "email does not exist"}, status=status.HTTP_400_BAD_REQUEST)
+    
+    #     # check for is_email_verified
+    #     if not user.is_email_verified:
+    #         return Response({"error": "email is not verified"}, status=status.HTTP_400_BAD_REQUEST)
+        
+    #     token = ''.join(random.choices(string.ascii_uppercase + string.digits,k=15))
+    #     user.token_value = token
+
+    #     user.save()
+    #     user_serializer = UserSerializer(user)
+    #     Response({"user":user_serializer.data,"message":"Logged in successfully"},status=status.HTTP_200_OK)
+    #     Response.set_cookie(key='token', value=token, httponly=True,secure=True,samesite='Lax')
+    #     return Response

@@ -1,0 +1,10 @@
+pip install django
+python manage.py startapp user
+python manage.py runserver
+pip install djangorestframework
+pip instal django-cors-headers
+python manage.py migrate
+python manage.py makemigrations
+python manage.py createsuperuser
+
+============================= tandon.aryaman123@gmail.com, aryaman123@, username = Tandon
